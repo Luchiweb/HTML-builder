@@ -21,8 +21,8 @@ async function copyDir(source, target) {
         await fs.copyFile(filePath, targetFilePath);
       }
     }
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
   }
 }
 
