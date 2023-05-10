@@ -6,6 +6,7 @@ const targetPath = path.join(__dirname, 'files-copy');
 
 async function copyDir(source, target) {
   const isDirExist = await isDirectoryExist();
+  console.log(isDirExist);
   if (isDirExist) await fsp.rm(target, { recursive: true });
 
   await fsp.mkdir(target, { recursive: true });
@@ -29,9 +30,9 @@ async function copyDir(source, target) {
 async function isDirectoryExist(target) {
   try {
     await fsp.access(target);
-    return true;
-  } catch (err) {
     return false;
+  } catch (err) {
+    return true;
   }
 }
 
